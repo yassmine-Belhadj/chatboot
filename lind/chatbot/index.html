@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chatbot Interface</title>
+</head>
+<body>
+  <div id="chatbox">
+    <div class="chatlog">
+      <p id="reponse">Welcome to the chatbot interface! Ask me anything.</p>
+    </div>
+    <form id="userinput">
+      <input type="text" id="input" placeholder="Type your message here...">
+      <button type="submit" onclick="generateResponse(this)">Send</button>
+    </form>
+  </div>
+  <script>
+  const form = document.getElementById('userinput');
+const chatlog = document.querySelector('.chatlog');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const input = document.getElementById('input').value;
+  const response = generateResponse(input);
+  displayResponse(response);
+});
+
+function generateResponse(input) {
+  let response =  document.getElementById("reponse").innerHTML ;
+  if (input.includes('bonjour') || input.includes('salut') || input.includes('hi')) {
+  return  response = 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
+  } else if (input.includes('météo')) {
+  return  response = 'Je ne suis pas capable de fournir les prévisions météo actuellement. Veuillez consulter une source météorologique en ligne.';
+  } else if (input.includes('quel est ton nom') || input.includes('comment tu t\'appelles')) {
+   return response = 'Je m\'appelle Chatbot. Et vous ?';
+  } else if (input.includes('merci')) {
+  return  response = 'De rien ! N\'hésitez pas à me poser d\'autres questions.';
+  } else 
+   return response = 'Je suis désolé, je ne suis pas capable de répondre à cette question. Veuillez essayer de reformuler votre question ou de la poser différemment.';
+  }
+ 
+ 
+
+
+function displayResponse(response) {
+  const message = document.createElement('p');
+  message.textContent = response;
+  chatlog.appendChild(message);
+}
+</script>
+</body>
+</html>

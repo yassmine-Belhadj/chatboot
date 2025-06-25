@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maquillage Bio - Commande en ligne</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    
+    <header>
+      <h1>Maquillage Bio</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Produits</a></li>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Contactez-nous</a></li>
+        </ul>
+      </nav>
+      
+    </header>
+    <div class="photo-bande">
+      <img src="téléchargement.jpg">
+      <img src="phalbm25928533.jpg">
+      <img src="OMBRE_BLACKSTAR_EYE_1000x1000_c9fedec9053052e200634301edbc185a.jpg">
+      <img src="5-lipstick-trends-to-try-now.webp">
+      <img src="0fqzdqla0cal.jpg">
+
+
+    </div>
+    
+    <section class="hero">
+      <h2>Des produits de maquillage naturels et biologiques</h2>
+      <p>Découvrez notre gamme de produits de maquillage naturels et biologiques, tous fabriqués à partir d'ingrédients de qualité supérieure pour vous offrir une expérience de beauté plus saine.</p>
+      <a href="#" class="button">Acheter maintenant</a>
+    </section>
+    <section class="products">
+      <h2>Nos produits</h2>
+      <ul>
+        <li>
+          <img src="produit.png.png">
+          <h3>Rouge à lèvres bio</h3>
+          <p>Ce rouge à lèvres bio hydrate et nourrit vos lèvres tout en leur donnant une touche de couleur subtile.</p>
+          <a href="#" class="button">Acheter maintenant</a>
+        </li>
+        <li>
+          <img src="Maquillage-les-plus-jolies-palettes-de-fards-a-paupieres-pour-le-printemps-2022.jpg">
+          <h3>Fard à paupières bio</h3>
+          <p>Notre fard à paupières bio est riche en pigments naturels pour une couleur longue durée et un effet doux et soyeux.</p>
+          <a href="#" class="button">Acheter maintenant</a>
+        </li>
+        <li>
+          <img src="choisir-mascara-effet-faux-cils-la-loge-beaute.webp">
+          <h3>Mascara bio</h3>
+          <p>Notre mascara bio allonge, épaissit et définit vos cils pour un regard plus intense et plus volumineux.</p>
+          <a href="#" class="button">Acheter maintenant</a>
+        </li>
+      </ul>
+    </section>
+    <section class="chatbot">
+    <div id="chatbox">
+      <div class="chatlog">
+        <h2>chatbot<h2>
+        <p id="reponse">bonjour ! bienvenue à notre chatbot . vous pouvez nous poser des questions .</p>
+      </div>
+      <form id="userinput">
+        <input type="text" id="input" placeholder="Tapez votre question ici...">
+        <button type="submit" onclick="generateResponse(this)">Envoyer</button>
+      </form>
+    </div>
+  </section>
+    <script>
+    const form = document.getElementById('userinput');
+  const chatlog = document.querySelector('.chatlog');
+  
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = document.getElementById('input').value;
+    const response = generateResponse(input);
+    displayResponse(response);
+  });
+  
+  
+  function generateResponse(input) {
+    let response =  document.getElementById("reponse").innerHTML ;
+    if (input.includes('bonjour') || input.includes('salut') || input.includes('hi')) {
+    return  response = 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
+    } else if (input.includes('quelle est votre localisation ?')) {
+    return  response = 'Rue Mohamed 5 Nabeul .';
+    } else if (input.includes('est ce que je pourrais savoir votre numéro de téléphone') ) {
+     return response = '+216 51 868 691';
+    } else if (input.includes('merci')) {
+    return  response = 'De rien ! N\'hésitez pas à me poser d\'autres questions.';
+    } else 
+     return response = 'Je suis désolé, je ne suis pas capable de répondre à cette question. Veuillez essayer de reformuler votre question ou de la poser différemment.';
+    }
+   
+  
+  
+  function displayResponse(response) {
+    const message = document.createElement('p');
+    message.textContent = response;
+    chatlog.appendChild(message);
+  }
+  </script>
+    <footer>
+      <p>© Maquillage Bio 
+   
+</footer>
+
+</body>
+</html>
+
